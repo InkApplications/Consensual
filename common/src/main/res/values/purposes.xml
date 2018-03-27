@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_type_analytics">Analytics</string>
+    <string name="service_type_payment">Payment</string>
+    <string name="service_type_crash_report">Crash Reporting</string>
+</resources>

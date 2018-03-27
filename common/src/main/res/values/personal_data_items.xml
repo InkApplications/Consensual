@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="personal_data_item_location">Location</string>
+    <string name="personal_data_item_identity">Name / Identity</string>
+    <string name="personal_data_item_email">Email</string>
+    <string name="personal_data_item_usage">Usage</string>
+    <string name="personal_data_item_phone">Phone Number</string>
+    <string name="personal_data_item_demographics">Personal Demographics</string>
+    <string name="personal_data_item_financial">Financial Information</string>
+</resources>

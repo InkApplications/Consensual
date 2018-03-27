@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="service_google_analytics">Google Analytics</string>
+    <string name="service_firebase_analytics">Firebase Analytics</string>
+    <string name="service_crashlytics">Crashlytics</string>
+    <string name="service_stripe">Stripe</string>
+</resources>
