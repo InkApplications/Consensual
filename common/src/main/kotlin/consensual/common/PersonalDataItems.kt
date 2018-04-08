@@ -1,14 +1,13 @@
 package consensual.common
 
-import consensual.PersonalDataItem
-import consensual.common.R
+import consensual.PersonalData
 
 object PersonalDataItems {
-    val LOCATION = PersonalDataItem(R.string.personal_data_item_location)
-    val IDENTITY = PersonalDataItem(R.string.personal_data_item_identity)
-    val USAGE = PersonalDataItem(R.string.personal_data_item_usage)
-    val EMAIL = PersonalDataItem(R.string.personal_data_item_email)
-    val PHONE = PersonalDataItem(R.string.personal_data_item_phone)
-    val DEMOGRAPHICS = PersonalDataItem(R.string.personal_data_item_demographics)
-    val FINANCIAL = PersonalDataItem(R.string.personal_data_item_financial)
+    val LOCATION = PersonalData(R.string.personal_data_item_location)
+    val IDENTITY = PersonalData(R.string.personal_data_item_identity)
+    val USAGE = PersonalData(R.string.personal_data_item_usage)
+    val EMAIL = PersonalData(R.string.personal_data_item_email)
+    val PHONE = PersonalData(R.string.personal_data_item_phone)
+    val DEMOGRAPHICS = PersonalData(R.string.personal_data_item_demographics)
+    val FINANCIAL = PersonalData(R.string.personal_data_item_financial)
 }

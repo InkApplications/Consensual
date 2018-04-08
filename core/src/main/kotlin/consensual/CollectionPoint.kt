@@ -1,5 +1,7 @@
 package consensual
 
+import java.io.Serializable
+
 /**
  * Pairs a service with the information that service collects.
  *
@@ -9,11 +11,11 @@ package consensual
 @Suppress("unused")
 data class CollectionPoint(
     val service: Service,
-    val data: Set<PersonalDataItem>
-) {
+    val data: Set<PersonalData>
+): Serializable {
     constructor(
         service: Service,
-        data: PersonalDataItem
+        data: PersonalData
     ): this(service, setOf(data))
 
     /**

@@ -1,6 +1,7 @@
 package consensual
 
 import android.support.annotation.StringRes
+import java.io.Serializable
 
 /**
  * An individual service that is collecting user information.
@@ -11,4 +12,4 @@ import android.support.annotation.StringRes
 data class Service(
     val type: Purpose,
     @StringRes val name: Int
-)
+): Serializable

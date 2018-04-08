@@ -1,6 +1,7 @@
 package consensual
 
 import android.support.annotation.StringRes
+import java.io.Serializable
 
 /**
  * A collection of all of the Personal information the user is disclosing
@@ -16,7 +17,7 @@ data class DisclosureReport(
     val disclosures: Set<CollectionPoint>,
     @StringRes val message: Int? = null,
     @StringRes val title: Int? = null
-) {
+): Serializable {
     constructor(
         disclosures: CollectionPoint,
         @StringRes message: Int? = null,

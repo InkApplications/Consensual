@@ -1,6 +1,7 @@
 package consensual
 
 import android.support.annotation.StringRes
+import java.io.Serializable
 
 /**
  * An individual piece of personal data that is being collected.
@@ -8,6 +9,6 @@ import android.support.annotation.StringRes
  * @param name The user readable name to call this piece of information.
  *        This should be concise and well-understood.
  */
-data class PersonalDataItem(@StringRes val name: Int) {
-    operator fun plus(data: PersonalDataItem): Set<PersonalDataItem> = setOf(this, data)
+data class PersonalData(@StringRes val name: Int): Serializable {
+    operator fun plus(data: PersonalData): Set<PersonalData> = setOf(this, data)
 }

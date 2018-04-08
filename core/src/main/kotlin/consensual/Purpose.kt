@@ -2,6 +2,7 @@ package consensual
 
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
+import java.io.Serializable
 
 /**
  * A categorical reason for a service to be collecting information
@@ -12,4 +13,4 @@ import android.support.annotation.StringRes
 data class Purpose(
     @DrawableRes val icon: Int,
     @StringRes val title: Int
-)
+): Serializable

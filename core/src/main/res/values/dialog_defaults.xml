@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_default_title">Privacy Policy</string>
+    <string name="dialog_default_description">This app will collect some private information. Take a chance to review how we\'ll be using this information.</string>
+    <string name="dialog_default_accept">Agree</string>
+    <string name="dialog_default_cancel">Cancel</string>
+</resources>

@@ -7,8 +7,8 @@ import org.junit.Test
 
 class CollectionPointTest {
     @Test fun add() {
-        val a = CollectionPoint(Service(Purpose(0, 1), 2), PersonalDataItem(3))
-        val b = CollectionPoint(Service(Purpose(4, 4), 6), PersonalDataItem(7))
+        val a = CollectionPoint(Service(Purpose(0, 1), 2), PersonalData(3))
+        val b = CollectionPoint(Service(Purpose(4, 4), 6), PersonalData(7))
         val combined = a + b
 
         assertNotEquals(a, b)
