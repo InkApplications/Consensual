@@ -9,7 +9,12 @@ Installation
 
 Base Functionality can be included with:
 
-    implementation "com.github.InkApplications.Consensual:core:0.1.0"
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+    dependencies {
+        implementation "com.github.InkApplications.Consensual:core:0.1.0"
+    }
 
 Approximate definitions of commonly used 3rd-party services can be 
 included with: 
