@@ -5,12 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import consensual.*
 import consensual.core.R
 import kotlinx.android.synthetic.main.disclosure_dialog.*
 
+private const val LOG_TAG = "Consensual"
 private const val REPORT_DATA = "disclosure_report_data"
 
 /** Request code for the Disclosure Activity intent. */
@@ -36,11 +38,26 @@ const val DISCLOSURE_CANCELED = 9544
  * accept/cancel events if more complex handling is needed.
  */
 open class DisclosureActivity: AppCompatActivity() {
-    private var disclosureReport: DisclosureReport? = null
     private val disclosureAdapter = GroupAdapter<ViewHolder>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val report = intent.extras?.getSerializable(REPORT_DATA) as? DisclosureReport?
+
+        if (report == null) {
+            Log.e(LOG_TAG, "Failed to read report data. Aborting Activity.")
+            finish()
+            return
+        }
+
+        if (!shouldShowDisclosure(report)) {
+            Log.w(LOG_TAG, "Disclosure already accepted. Call `Activity.shouldShowDisclosure` to prevent launching this activity unnecessarily.")
+            setResult(DISCLOSURE_ACCEPTED)
+            finish()
+            return
+        }
+
         setContentView(R.layout.disclosure_dialog)
 
         disclosure_notices.layoutManager = LinearLayoutManager(this)
@@ -48,19 +65,21 @@ open class DisclosureActivity: AppCompatActivity() {
         disclosure_notices.isFocusable = false
         disclosure_notices.adapter = disclosureAdapter
 
-        disclosure_accept.setOnClickListener { acceptTerms() }
-        disclosure_cancel.setOnClickListener { cancel() }
+        disclosure_accept.setOnClickListener { acceptTerms(report) }
+        disclosure_cancel.setOnClickListener { cancel(report) }
 
-        disclosureReport = intent.extras?.getSerializable(REPORT_DATA) as? DisclosureReport?
-        disclosureAdapter.addAll(disclosureReport?.toItems() ?: emptyList())
+        disclosureAdapter.addAll(report.toItems())
     }
 
-    open fun acceptTerms() {
+    open fun acceptTerms(report: DisclosureReport) {
+        setDisclosureAccepted(report)
+        Log.i(LOG_TAG, "Privacy Disclosure accepted by user.")
         setResult(DISCLOSURE_ACCEPTED)
         finish()
     }
 
-    open fun cancel() {
+    open fun cancel(report: DisclosureReport) {
+        Log.i(LOG_TAG, "Privacy Disclosure cancelled by user.")
         setResult(DISCLOSURE_CANCELED)
         finish()
     }
