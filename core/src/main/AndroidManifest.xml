@@ -1,1 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="consensual.core"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="consensual.core">
+    <application>
+        <activity android:name="consensual.dialog.DisclosureActivity" />
+    </application>
+</manifest>
